@@ -4,7 +4,7 @@ const API_URL = 'https://upstudent-api.onrender.com';
 
 export const api = {
   getDias: async (): Promise<DiaEstudo[]> => {
-    const res = await fetch(API_URL);
+    const res = await fetch(`${API_URL}/days`);
     if (!res.ok) throw new Error('API Offline');
     return res.json();
   },
