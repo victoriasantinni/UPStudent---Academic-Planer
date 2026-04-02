@@ -1,6 +1,6 @@
 import { DiaEstudo, Aula } from '../types';
 
-const API_URL = 'http://localhost:3000/days';
+const API_URL = 'https://upstudent-api.onrender.com';
 
 export const api = {
   getDias: async (): Promise<DiaEstudo[]> => {
