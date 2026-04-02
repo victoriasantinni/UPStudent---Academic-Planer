@@ -10,7 +10,7 @@ export const api = {
   },
   
   updateDia: async (diaId: string, aulas: Aula[]) => {
-    const res = await fetch(`${API_URL}/${diaId}`, {
+    const res = await fetch(`${API_URL}/days/${diaId}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ aulas })
