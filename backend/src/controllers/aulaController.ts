@@ -53,6 +53,7 @@ export const updateDiaAulas = async (req: CustomRequest, res: Response): Promise
     await prisma.aula.deleteMany({ where: { userId, diaId } });
 
     if (aulas && Array.isArray(aulas)) {
+      // Mapeamento forçado para garantir que não haja arrays em campos de string
       const dataToCreate = aulas.map((aula: any) => ({
         materia: String(aula.materia || ""),
         horario: String(aula.horario || aula.hora || ""),
