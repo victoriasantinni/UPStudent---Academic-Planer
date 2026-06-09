@@ -2,11 +2,17 @@ import { Response } from 'express';
 import { CustomRequest } from '../middlewares/authMiddleware';
 import prisma from '../database/prisma';
 
+interface AulaInput {
+  materia: string;
+  hora?: string;
+  horario?: string;
+  id?: string;
+}
+
 export const getDaysWithAulas = async (req: CustomRequest, res: Response): Promise<void> => {
   try {
     const userId = req.userId;
 
-    // 🛡️ Segurança do TS: Garante que o userId existe antes de passá-lo para o Prisma
     if (!userId) {
       res.status(401).json({ error: 'Usuário não autenticado.' });
       return;
@@ -49,7 +55,6 @@ export const updateDiaAulas = async (req: CustomRequest, res: Response): Promise
     const { diaId } = req.params;
     const { aulas } = req.body; 
 
-    // 🛡️ Movido para o topo! A checagem precisa acontecer ANTES de rodar o deleteMany
     if (!userId) {
       res.status(401).json({ error: 'Usuário não identificado.' });
       return;
@@ -60,18 +65,21 @@ export const updateDiaAulas = async (req: CustomRequest, res: Response): Promise
     });
 
     if (aulas && Array.isArray(aulas) && aulas.length > 0) {
+      const novasAulas = aulas.map((aula: AulaInput) => ({
+        materia: String(aula.materia),
+        horario: String(aula.hora || aula.horario || ''),
+        diaId: String(diaId),
+        userId: userId,
+      }));
+
       await prisma.aula.createMany({
-        data: aulas.map((aula: any) => ({
-          materia: aula.materia,
-          horario: aula.hora || aula.horario, 
-          diaId,
-          userId: userId,
-        })),
+        data: novasAulas,
       });
     }
 
-    res.json({ message: `Dia ${diaId} atualizado com sucesso no PostgreSQL!` });
+    res.json({ message: `Dia ${diaId} atualizado com sucesso!` });
   } catch (error) {
+    console.error(error);
     res.status(500).json({ error: 'Erro ao salvar modificações do card.' });
   }
 };
