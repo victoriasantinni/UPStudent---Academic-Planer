@@ -2,19 +2,13 @@
   "compilerOptions": {
     "outDir": "./dist",
     "rootDir": "./src",
-
-    // Configurações essenciais para Node.js com módulos (ESM)
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "target": "ESNext",
     "lib": ["ESNext"],
-
-    // Correções para o seu erro de compilação
     "esModuleInterop": true,
     "skipLibCheck": true,
     "strict": true,
-
-    // Outras configurações recomendadas
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,

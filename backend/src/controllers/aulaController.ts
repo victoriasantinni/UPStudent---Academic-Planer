@@ -66,8 +66,8 @@ export const updateDiaAulas = async (req: CustomRequest, res: Response): Promise
 
     if (aulas && Array.isArray(aulas) && aulas.length > 0) {
       const novasAulas = aulas.map((aula: AulaInput) => ({
-        materia: String(aula.materia),
-        horario: String(aula.hora || aula.horario || ''),
+        materia: String(aula.materia || ""),
+        horario: String(aula.hora || aula.horario || ""),
         diaId: String(diaId),
         userId: userId,
       }));
@@ -79,7 +79,6 @@ export const updateDiaAulas = async (req: CustomRequest, res: Response): Promise
 
     res.json({ message: `Dia ${diaId} atualizado com sucesso!` });
   } catch (error) {
-    console.error(error);
     res.status(500).json({ error: 'Erro ao salvar modificações do card.' });
   }
 };
