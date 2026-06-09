@@ -1,6 +1,6 @@
 import { Response } from 'express';
-import { CustomRequest } from '../middlewares/authMiddleware';
-import prisma from '../database/prisma';
+import { CustomRequest } from '../middlewares/authMiddleware.js';
+import prisma from '../database/prisma.js';
 
 interface AulaInput {
   materia: string;
