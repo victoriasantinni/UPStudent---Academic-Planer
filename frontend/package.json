@@ -1,0 +1,26 @@
+{
+  "name": "upstudent",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
+    "start": "json-server --watch db.json --port $PORT --host 0.0.0.0 --cors"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "json-server": "^0.17.4" 
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5",
+    "tailwindcss": "^3.3.3",
+    "autoprefixer": "^10.4.15",
+    "postcss": "^8.4.28"
+  }
+}

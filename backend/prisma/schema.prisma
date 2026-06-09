@@ -1,0 +1,27 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  name      String?
+  aulas     Aula[]
+  createdAt DateTime @default(now())
+}
+
+model Aula {
+  id        String   @id @default(uuid())
+  materia   String
+  horario   String
+  diaId     String   // ex: "segunda", "quinta-feira" (vai bater direto com seus cards atuais)
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+}

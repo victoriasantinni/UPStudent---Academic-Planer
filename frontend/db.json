@@ -1,0 +1,69 @@
+{
+  "days": [
+    {
+      "id": "segunda",
+      "name": "Segunda-feira",
+      "aulas": [
+        {
+          "id": 1,
+          "hora": "08:00",
+          "materia": "Cálculo I",
+          "cor": "#3b82f6"
+        },
+        {
+          "id": 2,
+          "hora": "10:00",
+          "materia": "Física",
+          "cor": "#ef4444"
+        }
+      ]
+    },
+    {
+      "id": "terca",
+      "name": "Terça-feira",
+      "aulas": [
+        {
+          "id": 3,
+          "hora": "15:00",
+          "materia": "Artes",
+          "cor": "#10b981"
+        }
+      ]
+    },
+    {
+      "id": "quarta",
+      "name": "Quarta-feira",
+      "aulas": [
+        {
+          "id": 1775000321479,
+          "hora": "08:00",
+          "materia": "Nova Disciplina",
+          "cor": "#3b82f6"
+        },
+        {
+          "id": 1775001187990,
+          "hora": "08:00",
+          "materia": "Nova Disciplina",
+          "cor": "#3b82f6"
+        },
+        {
+          "id": 1775001191070,
+          "hora": "08:00",
+          "materia": "Nova Disciplina",
+          "cor": "#3b82f6"
+        }
+      ]
+    },
+    {
+      "id": "quinta",
+      "name": "Quinta-feira",
+      "aulas": []
+    },
+    {
+      "id": "sexta",
+      "name": "Sexta-feira",
+      "aulas": []
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
