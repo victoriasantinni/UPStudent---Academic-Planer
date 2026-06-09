@@ -1,5 +1,10 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
+import express from 'express';
+
+export interface CustomRequest extends Request {
+  userId?: string;
+}
 
 export interface CustomRequest extends Request {
   userId?: string;

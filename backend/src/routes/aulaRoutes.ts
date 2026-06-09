@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { getDaysWithAulas, updateDiaAulas } from '../controllers/aulaController';
-import { authMiddleware } from '../middlewares/authMiddleware';
+import { getDaysWithAulas, updateDiaAulas } from '../controllers/aulaController.js';
+import { authMiddleware } from '../middlewares/authMiddleware.js';
 
 const router = Router();
 
