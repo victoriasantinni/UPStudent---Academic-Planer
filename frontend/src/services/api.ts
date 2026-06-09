@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3001';
+const API_URL = 'https://upstudent-api-vul4.onrender.com';
 
 const getHeaders = () => {
   const token = localStorage.getItem('@UPStudent:token');
